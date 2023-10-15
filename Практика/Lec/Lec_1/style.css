@@ -1,0 +1,15 @@
+/* h1 {
+    color: red;
+} */
+
+.title {
+    color: red;
+}
+
+.title+p {
+    color: green;
+}
+
+.text {
+    color: green;
+}
