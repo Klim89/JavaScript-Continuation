@@ -62,7 +62,7 @@ console.log(titleEl);
 // Добавление текстового узла в абзац
 
 const paragraphElementText = document.createTextNode(
-  "Содрежимое текстовой ноды"
+  "Содержимое текстовой ноды"
 );
 paragraphElement.appendChild(paragraphElementText);
 console.log(paragraphElement);
