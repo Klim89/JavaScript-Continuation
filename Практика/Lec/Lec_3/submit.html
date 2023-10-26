@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        <input type="text" class="input">
+        <div class="error"></div>
+        <button type="submit">GO</button>
+    </form>
+
+    <script>
+        const inputText = document.querySelector('input');
+        const formRun = document.querySelector('form');
+        const errorEl = document.querySelector('.error');
+
+        formRun.addEventListener('submit', (event) => {
+            if (inputText.value === '') {
+                event.preventDefault();
+                errorEl.textContent = 'Поле не должно быть пустым'
+            }
+        });
+    </script>
+</body>
+
+</html>

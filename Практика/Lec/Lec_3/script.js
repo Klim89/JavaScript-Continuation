@@ -14,7 +14,6 @@
 
 const buttonEl = document.querySelector(".button");
 let count = 0;
-let counter = 0;
 
 const click = function () {
   console.log("Click js button");
