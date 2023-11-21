@@ -1,0 +1,48 @@
+<!-- Действия по умолчанию -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        <h2>Форма</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae iusto possimus laborum assumenda consectetur
+            perspiciatis eaque maiores, iste cupiditate, autem dolore, ducimus eligendi soluta. Alias quos amet mollitia
+            eaque voluptas.
+        </p>
+        <input id="checkbox" type="checkbox" class="check">
+        <label for="checkbox">
+            Согласен с условиями
+        </label>
+        <div class = "error"></div>
+        <button type="submit">Отправить</button>
+    </form>
+
+    <script>
+        const inputEl = document.querySelector('.check');
+        const formEl = document.querySelector('.form');
+        const errorEl = document.querySelector('.error');
+
+        inputEl.addEventListener('click', (event) => {
+            console.log(event.target.checked)// true 
+            event.preventDefault()
+        });
+
+        formEl.addEventListener('submit', function (e) {
+            // console.log(inputEl.checked ? "Молодец" : "Выбрать согласен с условиями");
+            if (inputEl.checked) {
+                console.log('Молодец');
+            } else {
+                errorEl.textContent = "Выбрать согласен с условиями"
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>
