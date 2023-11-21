@@ -1,0 +1,60 @@
+<!-- В html создать 2 элемента радио кнопки (input type=”radio”) и текст “Чай”, “Кофе” соответственно
+Кнопка отправить
+Если выбран чай, необходимо вывести сообщение “Чай закончился”
+Если выбран кофе, необходимо вывести сообщение “Кофе закончился” -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" class="form">
+        <input type="radio" class="inTea" name="drink" id="tea">
+        <label class="tea" for="tea">Чай</label>
+        <input type="radio" class="inCoffee" name="drink" id="coffee">
+        <label class="coffee" for="coffee">Кофе</label>
+        <div class="error"></div>
+        <button class="btn" type="submit">Отправить</button>
+    </form>
+
+    <script>
+
+        const form = document.querySelector('.form');
+        const strTea = form.querySelector('.tea');
+        const strCoffee = form.querySelector('.coffee');
+        const btn = form.querySelector('.btn');
+        const error = form.querySelector('.error');
+        const inputTea = form.querySelector('.inTea');
+        const inputCoffee = form.querySelector('.inCoffee');
+
+        btn.addEventListener('click', errorToProduct)
+
+        function errorToProduct(event) {
+            event.preventDefault();
+            if (inputTea.checked) {
+                abc(error, strTea);
+            }
+            else if (inputCoffee.checked) {
+                abc(error, strCoffee);
+            }
+            else {
+                error.textContent = 'ничего не выбрано. выбирите напиток';
+            }
+        }
+
+        function addError(str) {
+            return `${str} закончился`
+        }
+        function abc(error, str) {
+            error.textContent = addError(str.textContent);
+        }
+
+    </script>
+</body>
+
+</html>

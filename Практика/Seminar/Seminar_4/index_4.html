@@ -1,0 +1,46 @@
+<!-- Создать поле ввода и под ним заголовок h1 с текстом “Заголовок”
+При вводе текста в поле ввода необходимо чтобы текст внутри заголовка менятся на введенный в поле ввода
+* Создать список покупок, вводим, нажимаем добавить и он добавляет в список. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input class="input" type="text" placeholder="Создай свой заголовок" />
+    <h1 class="h1">Заголовок</h1>
+    <button class="btn">Добавить</button>
+    <ul class="ul">
+        <!-- <li class="li_item"></li> -->
+    </ul>
+
+    <script>
+        const input = document.querySelector(".input");
+        const h1 = document.querySelector(".h1");
+        const ul = document.querySelector("ul");
+        const btn = document.querySelector(".btn");
+
+        document.addEventListener("input", () => {
+            if (inputEl.value === "") {
+                titleEl.textContent = "Заголовок";
+            } else {
+                titleEl.textContent = inputEl.value;
+            }
+        });
+
+        btn.addEventListener('click', (event) => {
+            // event.preventDefault();
+            const li = document.createElement("li");
+            li.textContent = input.value;
+            console.log(li)
+            ul.append(li);
+        });
+    </script>
+</body>
+
+</html>
