@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="product">
+        <img class="product__img" src="photo.jpg" alt="photo">
+        <div class="product__content">
+            <a class="product__name" href="product.html">Название товара</a>
+            <p class="product__text">Lorem ipsum dolor sit amet consectetur.</p>
+            <p class="product__price">55</p>
+        </div>
+    </div>
+    <script>
+        const productData = [
+            {
+                name: 'Название товара obj',
+                price: 80
+            },
+            {
+                name: 'Название товара obj 2',
+                price: 50
+            }
+        ]
+
+        const productNameLink = document.querySelector('.product__name');
+        const productsPrice = document.querySelector('.product__price');
+
+        productNameLink.textContent = productData.name;
+        productsPrice.textContent = productData.price;
+
+        // Функция JSON.stringify()
+
+        // const obj = {"first_name" : "John", "last_name" : "Smith", "location" : "London"} 
+        // const s = JSON.stringify(obj)
+
+        // Функция JSON.parse()
+        
+        // Примечание: Чтобы преобразовать текст в объект, используйте функциюeval().
+        
+        // const data = JSON.parse(s);
+        
+    </script>
+</body>
+
+</html>
