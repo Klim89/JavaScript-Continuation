@@ -67,35 +67,24 @@
         // - Если поле пустое, необходимо данное поле подсветить (поставить класс error данному полю).
         // - Если поле было чем-либо заполнено, подсветку (класс error) необходимо убрать.
 
-        const form = document.querySelector("form");
-        const inputs = form.querySelectorAll(".form-control");
-
-        inputs.forEach(function (input) {
-            input.classList.remove('error');
-        });
-
-        inputs.forEach(function (input) {
-            const inputValue = input.value.trim();
-            if (inputValue === '') {
-                input.classList.add('error');
-            }
-        });
-
-        if (form.querySelectorAll('.error').length === 0) {
-            alert('Форма отправлена успешно!');
-        }
-
-        inputs.forEach(function (input) {
-            input.addEventListener('submit', function (event) {
-                const inputValue = event.target.value.trim();
-                if (inputValue === '') {
+        const formEl = document.querySelector('form');
+        const inputs = formEl.querySelectorAll('input, select');
+        formEl.addEventListener('submit', event => {
+            inputs.forEach(inputs => {
+                if (inputs.value === '') {
+                    inputs.classList.add('error');
                     event.preventDefault();
-                    event.target.classList.add('error');
-                    inputs.style.borderColor = "red";
-                } else {
-                    event.target.classList.remove('error');
                 }
             });
+        });
+
+        formEl.addEventListener('input', event => {
+            if (!event.target.classList.contains('form-control')) {
+                return;
+            }
+            event.target.value === ''
+                ? event.target.classList.add('error')
+                : event.target.classList.remove('error');
         });
 
     </script>
