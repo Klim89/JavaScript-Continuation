@@ -1,0 +1,92 @@
+<!-- Задание 1
+1. Поиск в интернете (бесплатные api примеры).
+2. Найти любые данные, на произвольную тему.
+3. Создать файл data.js.
+4. Создать переменную которая будет хранить данные из публичных api.
+
+Задание 2
+1. Создать файл index.html.
+2. Подключить data.js.
+3. Сформировать контент из данных (картинка загловок и параграф).
+4. Добавить данный контент в вёрстку.
+5. * Добавить стили при необходимости (по желанию). -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .product__text {
+            width: 250px;
+            border: 1px solid #000;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .product__price {
+            width: 250px;
+            border: 1px solid red;
+            padding: 16px;
+            color: blue;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+        <div class="content"></div>
+        <script src="data.js"></script>
+        <script>
+            const productContent = document.querySelector('.content');
+
+            const data = JSON.parse(dataInfo);
+            console.log(data);
+
+            data.forEach(element => {
+                console.log(element.title, "-", element.thumbnailUrl);
+            });
+
+            data.forEach(element => {
+
+                const productAlbumId = document.createElement('p');
+                productAlbumId.classList.add('product__text');
+                productAlbumId.textContent = element.id;
+
+                const productId = document.createElement('p');
+                productId.classList.add('product__price');
+                productId.textContent = element.albumId;
+
+                const productText = document.createElement('p');
+                productText.classList.add('product__text');
+                productText.textContent = "provident rerum voluptatem illo asperiores qui maiores";
+
+                const productLink = document.createElement('a');
+                productLink.href = 'https://via.placeholder.com/600/ee0a7e';
+
+                const thumbnailUrl = document.createElement('a');
+                thumbnailUrl.href = 'https://via.placeholder.com/150/ee0a7e';
+
+                productContent.appendChild(productAlbumId);
+                productContent.appendChild(productId);
+                productContent.appendChild(productText);
+                productContent.appendChild(productLink);
+                productContent.appendChild(thumbnailUrl);
+            });
+
+        </script>
+    </body>
+</body>
+
+</html>
