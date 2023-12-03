@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <audio class="audio" controls src="http://beloweb.name/audio/dillon_-_thirteen_thirtyfive_.mp3" preload="auto">
+
+    </audio>
+
+    <script>
+        const audioEL = document.querySelector('.audio');
+        
+        audioEL.addEventListener('play', function (e) {
+            console.log('Вы нажали аудио плей');
+        });
+
+        audioEL.addEventListener('pause', function (e) {
+            console.log('Вы нажали паузу');
+        });
+    </script>
+
+</html>
