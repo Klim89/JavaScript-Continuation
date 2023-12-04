@@ -1,0 +1,65 @@
+<!-- Дан макет сайта https://www.figma.com/file/mnLY69cYE5cqWM5w6n5hXx/Seo-%26-Digital-Marketing-Landing-Page?node-id=190%3A1194&t=q4NMnXTnwyyTSGA6-0
+В блоке Featured Items небходимо реализовать шаблон товаров.
+Для этого необходимо создать json формат данных по всем товарам.
+Из этого файла сформировать блок Featured Items.
+Всю вёрстку остальных частей реализовывать не нужно, если у вас она была сделана на html/css можно использовать, заново создавать не требуется. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="product__list center"></div>
+    <script src="data.js"></script>
+
+    <script>
+        const productsBox = document.querySelector('.product__list');
+
+        const productsData = JSON.parse(productData);
+        console.log(productsData);
+
+        productsData.forEach(productData => {
+            const productCard = document.createElement('div');
+            productCard.classList.add('product__item');
+
+            const productContent = document.createElement('div');
+            productContent.classList.add('product__content');
+
+            const productImage = document.createElement('img');
+            productImage.classList.add('product__img');
+            productImage.alt = productData.productImage;
+            productImage.src = productData.productImage;
+
+            const productTitleLink = document.createElement('a');
+            productTitleLink.classList.add('product__name');
+            productTitleLink.href = '#';
+            productTitleLink.textContent = productData.productTitle;
+
+            const productDescription = document.createElement('p');
+            productDescription.classList.add('product__info');
+            productDescription.textContent = productData.productDescription;
+
+            const productPrice = document.createElement('p');
+            productPrice.classList.add('product__price');
+            productPrice.textContent = '$' + productData.productPrice;
+
+            productContent.appendChild(productImage);
+            productContent.appendChild(productTitleLink);
+            productContent.appendChild(productDescription);
+            productContent.appendChild(productPrice);
+            productsBox.appendChild(productContent);
+        });
+    </script>
+</body>
+
+</html>
