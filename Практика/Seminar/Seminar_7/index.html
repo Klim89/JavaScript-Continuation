@@ -1,0 +1,74 @@
+<!-- Найти в интернете макет видео плеера 
+Создать index.html , style.css , img
+Скачать все картинки (кнопки play pause)
+Скачать любое видео из интернета (не более 10мб) или подключить видео ссылкой -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        Текущее время: <span class="currentTime">0</span>
+    </div>
+    <div class="player">
+        <video class="player__video"
+            src="video/Томас Шелби ставит на место наглую Джину Грей _ Острые козырьки 6 сезон..mp4"
+            preload="auto"></video>
+        <div class="player__playbutton">
+            <img class="player__playbutton-img" src="img/Play button.svg" alt="play">
+        </div>
+        <input type="range" class="timing" value="0" step="0.001">
+        <input type="range" class="volume" min="0" max="1" step="0.01">
+    </div>
+    <script>
+        const playButton = document.querySelector(".player__playbutton");
+        const playButtonImg = document.querySelector(".player__playbutton-img")
+        const video = document.querySelector(".player__video");
+        const timingEl = document.querySelector('.timing');
+        const currentTimeEl = document.querySelector('.currentTime');
+        const volumeEl = document.querySelector('.volume');
+
+        const stopPlay = () => {
+            if (video.paused) {
+                video.play();
+                playButtonImg.src = "img/Play button.svg";
+            } else {
+                video.pause();
+                playButtonImg.src = "img/Next button.svg";
+            }
+        }
+
+        playButton.addEventListener("click", () => {
+            stopPlay();
+        })
+
+        video.addEventListener('click', () => {
+            stopPlay();
+        })
+
+        video.addEventListener('timeupdate', function (e) {
+            currentTimeEl.innerText = video.currentTime;
+            timingEl.value = video.currentTime / video.duration * 100;
+        });
+
+        timingEl.addEventListener('input', function (e) {
+            video.currentTime = timingEl.value / 100 * video.duration;
+
+        });
+
+        volumeEl.addEventListener('input', function (e) {
+            video.volume = volumeEl.value;
+        });
+
+    </script>
+</body>
+
+</html>

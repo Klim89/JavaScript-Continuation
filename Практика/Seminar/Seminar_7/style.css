@@ -1,0 +1,31 @@
+.player {
+    position: relative;
+}
+
+.player__video {
+    /* height: 70vh; */
+    display: flex;
+    justify-content: center;
+}
+
+.player__playbutton {
+    position: absolute;
+    left: 0px;
+    bottom: 18px;
+    border: none;
+    background: transparent;
+}
+
+.timing {
+    border: none;
+    background: transparent;
+    left: 0px;
+    bottom: 18px;
+}
+
+.volume {
+    border: none;
+    background: transparent;
+    left: 0px;
+    bottom: 18px;
+} 
